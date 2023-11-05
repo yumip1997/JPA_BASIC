@@ -16,9 +16,6 @@ public class Member {
     private String street;
     private String zipCode;
 
-    @OneToMany(mappedBy = "member")
-    private List<Order> orderList = new ArrayList<>();
-
     public Long getId() {
         return id;
     }
@@ -59,11 +56,4 @@ public class Member {
         this.zipCode = zipCode;
     }
 
-    public List<Order> getOrderList() {
-        return orderList;
-    }
-
-    public void setOrderList(List<Order> orderList) {
-        this.orderList = orderList;
-    }
 }
