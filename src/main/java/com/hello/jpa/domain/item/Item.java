@@ -1,12 +1,12 @@
-package com.hello.jpa.domain;
+package com.hello.jpa.domain.item;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.hello.jpa.domain.common.BaseEntity;
+import jakarta.persistence.*;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue

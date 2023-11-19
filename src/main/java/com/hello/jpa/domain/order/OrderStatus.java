@@ -1,4 +1,4 @@
-package com.hello.jpa.domain;
+package com.hello.jpa.domain.order;
 
 public enum OrderStatus {
 

@@ -1,9 +1,11 @@
-package com.hello.jpa.domain;
+package com.hello.jpa.domain.order;
 
+import com.hello.jpa.domain.common.BaseEntity;
+import com.hello.jpa.domain.item.Item;
 import jakarta.persistence.*;
 
 @Entity
-public class OrderItem {
+public class OrderItem extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")

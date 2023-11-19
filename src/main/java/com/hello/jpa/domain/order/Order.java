@@ -1,5 +1,8 @@
-package com.hello.jpa.domain;
+package com.hello.jpa.domain.order;
 
+import com.hello.jpa.domain.common.BaseEntity;
+import com.hello.jpa.domain.delivery.Delivery;
+import com.hello.jpa.domain.member.Member;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -8,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name ="ORDERS")
-public class Order {
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
@@ -25,6 +28,10 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItemList = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name ="DELIVERY_ID")
+    private Delivery delivery;
 
     public Long getId() {
         return id;
@@ -68,5 +75,13 @@ public class Order {
 
     public void addOrderItem(OrderItem orderItem){
         this.getOrderItemList().add(orderItem);
+    }
+
+    public Delivery getDelivery() {
+        return delivery;
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
     }
 }

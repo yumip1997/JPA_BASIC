@@ -1,4 +1,4 @@
-import com.hello.jpa.domain.Order;
+import com.hello.jpa.domain.item.Book;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -15,7 +15,11 @@ public class JPAMain {
         tx.begin();
         try{
 
+            Book book = new Book();
+            book.setName("JPA");
+            book.setAuthor("김영한");
 
+            em.persist(book);
 
         }catch (Exception e){
           tx.rollback();
